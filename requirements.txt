@@ -1,8 +1,8 @@
 streamlit 
 datetime 
-yfinanc
-prophet  
+yfinanc==0.2.41
+prophet
 plotly
-requests
-pandas
-numpy
+requests==2.32.3
+pandas==1.5.3
+numpy==1.24.2
