@@ -81,11 +81,11 @@ def get_sector_info(stock_ticker):
             sector_data.append({
                 'Ticker': stock,
                 'Company': stock_data.get('shortName', stock),
-                'Price': stock_data.get('regularMarketPrice', float('nan')),
-                'P/E Ratio': stock_data.get('trailingPE', float('nan')),
-                'EPS': stock_data.get('earningsPerShare', float('nan')),
-                'Market Cap': stock_data.get('marketCap', float('nan')),
-                'Dividend Yield': stock_data.get('dividendYield', float('nan')),
+                'Price': stock_data.get('regularMarketPrice', np.float64('nan')),
+                'P/E Ratio': stock_data.get('trailingPE', np.float64('nan')),
+                'EPS': stock_data.get('earningsPerShare', np.float64('nan')),
+                'Market Cap': stock_data.get('marketCap', np.float64('nan')),
+                'Dividend Yield': stock_data.get('dividendYield', np.float64('nan')),
             })
         except:
             continue
@@ -131,7 +131,7 @@ st.markdown(
             <p style='font-size: 16px; margin: 0;'><strong>Current Price:</strong> <span style='color: #1abc9c;'>{current_price if current_price != 'N/A' else 'N/A'} INR</span></p>
         </div>
         <div style='background-color: #34495e; padding: 15px; border-radius: 8px;'>
-            <p style='font-size: 16px; margin: 0;'><strong>Day Gain:</strong> <span style='color: {"#27ae60" if isinstance(day_gain, (int, float)) and day_gain >= 0 else "#e74c3c"};'>{day_gain if day_gain != 'N/A' else 'N/A'} ({day_gain_percent if day_gain_percent != 'N/A' else 'N/A'}%)</span></p>
+            <p style='font-size: 16px; margin: 0;'><strong>Day Gain:</strong> <span style='color: {"#27ae60" if isinstance(day_gain, (int, np.float64)) and day_gain >= 0 else "#e74c3c"};'>{day_gain if day_gain != 'N/A' else 'N/A'} ({day_gain_percent if day_gain_percent != 'N/A' else 'N/A'}%)</span></p>
         </div>
         <div style='background-color: #34495e; padding: 15px; border-radius: 8px;'>
             <p style='font-size: 16px; margin: 0;'><strong>Volume:</strong> {volume if volume != 'N/A' else 'N/A'}</p>
