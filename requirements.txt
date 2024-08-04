@@ -1,0 +1,8 @@
+streamlit 
+datetime 
+yfinance
+prophet  
+plotly
+requests
+pandas
+numpy 
