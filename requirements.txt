@@ -1,7 +1,7 @@
 pip==23.0.1
 streamlit 
 datetime 
-yfinanc==0.2.41
+yfinance==0.2.41
 prophet
 plotly
 requests==2.32.3
