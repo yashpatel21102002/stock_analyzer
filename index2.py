@@ -13,9 +13,14 @@ START = "2015-01-01"
 TODAY = dt.date.today().strftime("%Y-%m-%d")
 NEWS_API_KEY = 'b54e87e131fc49ddba85749699aa962b'
 NEWS_API_URL = 'https://newsapi.org/v2/everything'
+#
 
 # App configuration
 st.set_page_config(page_title="Stock Analyzer", layout="wide")
+
+st.write("<p style='color: red;'>* Note: Forecasting is based on historical data and may highly misleading. It is only fun project.</p>", unsafe_allow_html=True)
+
+
 st.title("📈 Stock Analyzer")
 
 # Function to load data
@@ -349,5 +354,48 @@ else:
     st.write("No news articles found.")
 
 # Notes
-st.write("<p style='color: red;'>* Note: Forecasting is based on historical data and may not always be accurate. Use caution while making investment decisions.</p>", unsafe_allow_html=True)
+# Educational Information
+educational_text = """
+### How This App Works
+
+1. **Libraries Used**: The app uses the following libraries:
+    - `pandas` for data manipulation.
+    - `numpy` for numerical operations.
+    - `yfinance` to fetch the financial and stock data.
+    - `Prophet` for predicting the future stock prices.
+    - `plotly` for interactive plotting.
+
+2. **Stock Data Fetching**: The stock data is fetched using the `yfinance` library, which provides historical stock prices and other financial data.
+
+3. **Prediction Algorithm**:
+    - The app uses the `Prophet` library developed by Facebook for forecasting. Prophet is particularly good at capturing seasonality effects and trend changes in the data.
+    - **Model Components**: Prophet decomposes the time series data into three main components:
+        - **Trend**: The non-periodic changes in the value.
+        - **Seasonality**: The periodic changes that occur at fixed periods (e.g., yearly, weekly).
+        - **Holidays**: The effects of holidays which are specified by the user.
+    - **Additive Model**: Prophet uses an additive model where the predicted value is the sum of these components.
+    - **Algorithm**: The underlying algorithm involves fitting piecewise linear or logistic growth curves to the trend component, which allows it to adapt to changes in trend direction.
+    - **Seasonality**: Prophet handles seasonality by using Fourier series to provide a flexible yet interpretable model for periodic changes.
+    - **Holidays and Events**: Users can specify holidays and special events, which are included in the model to account for their impact on the time series.
+
+4. **Visualization**:
+    - The historical and predicted stock prices are visualized using `plotly` to provide an interactive and informative experience.
+"""
+
+# Display educational information in red text
+st.markdown(f"<div style='color: red;'>{educational_text}</div>", unsafe_allow_html=True)
+
+# Footer
+footer_text = """
+<hr style="border:1px solid gray"> </hr>
+<div style='text-align: center; padding: 10px;'>
+    <p style='color: gray;'>Made with 💘 by Yash Patel</p>
+    <p style='color: gray;'>© 2024 Syz Technologies</p>
+    <p style='color: gray;'>For more information, visit our <a href='https://www.syztechnologies.com' target='_blank' style='color: gray;'>website</a>.</p>
+</div>
+"""
+
+st.markdown(footer_text, unsafe_allow_html=True)
+
+
 
